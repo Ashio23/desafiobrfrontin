@@ -1,0 +1,37 @@
+<div fxLayoutAlign="left center">
+
+</div>
+
+<!-- [dataSource]="dataSource" -->
+<table mat-table   matSort class="mat-elevation-z8">
+
+  <ng-container matColumnDef="nombreDestinatario">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre destinatario </th>
+    <td mat-cell *matCellDef="let element"> {{element.nombreDestinatario}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="rut">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> RUT </th>
+    <td mat-cell *matCellDef="let element"> {{element.rutDestinatario}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="banco">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Banco </th>
+    <td mat-cell *matCellDef="let element"> {{element.bancoDestinatario}} </td>
+  </ng-container>
+  <ng-container matColumnDef="tipoCuenta">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo de cuenta </th>
+    <td mat-cell *matCellDef="let element"> {{element.tipocuenta}} </td>
+  </ng-container>
+  <ng-container matColumnDef="monto">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Monto </th>
+    <td mat-cell *matCellDef="let element"> {{element.monto}} </td>
+  </ng-container>
+  <ng-container matColumnDef="fecha">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de Transacción </th>
+    <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

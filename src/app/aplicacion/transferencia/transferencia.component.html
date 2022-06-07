@@ -1,0 +1,57 @@
+<br>
+<form #f="ngForm" (ngSubmit)="realizarTransferencia(f)">
+  <mat-dialog-content>
+    <section fxLayoutAlign="center">
+      <mat-card>
+        <div align="center">
+          <h2>
+            <mat-icon matSuffix>paid</mat-icon> Transferir
+          </h2>
+          <table cellspacing="20">
+            <tr>
+              <td>
+                <mat-form-field>
+                  <mat-label>Buscar Destinatario</mat-label>
+                  <mat-select [(ngModel)]="selectDestinatario" name="destinatario"
+                    (selectionChange)="selectedDestinatario($event)" ngModel required>
+                    <mat-option *ngFor="let destinatarios of destinatarios" value={{destinatarios.rut}}>
+                      {{destinatarios.nombre}} {{destinatarios.apellido}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error>Campo requerido</mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div style="width: 500px; padding-bottom: 10px;">
+          <div style="margin: 10px;" align="center">
+            <mat-card #rut><b>RUT: </b><label> {{rutDestinatario}}</label></mat-card>
+            <br>
+            <mat-card #name><b>Nombre: </b><label> {{nombreDestinatario}} {{apellidoDestinatario}}</label></mat-card>
+            <br>
+            <mat-card #mail><b>Correo: </b><label> {{correoDestinatario}}</label></mat-card>
+            <br>
+            <mat-card #bank><b>Banco: </b><label> {{bancoDestinatario}}</label></mat-card>
+            <br>
+            <mat-card #typeAccount><b>Tipo de cuenta: </b><label> {{tipoCuentaDestinatario}}</label></mat-card>
+            <br>
+            <mat-card #numberAccount><b>N° de cuenta: </b><label> {{numeroCuenta}}</label></mat-card>
+          </div>
+        </div>
+        <div align="center">
+          <mat-form-field>
+            <mat-label>Monto</mat-label>
+            <input #ammount type="number" matInput name="monto" min="1" pattern="^[0-9]+" ngModel required>
+            <mat-error>Campo requerido</mat-error>
+          </mat-form-field>
+        </div>
+        <div align="center" style="padding-top: 20px;">
+          <mat-dialog-actions>
+            <button mat-button type="submit" mat-raised-button color="primary">Transferir</button>
+          </mat-dialog-actions>
+        </div>
+      </mat-card>
+    </section>
+  </mat-dialog-content>
+</form>

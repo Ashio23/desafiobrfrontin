@@ -1,0 +1,11 @@
+<h1>Mis Clientes</h1>
+<form (ngSubmit)="guardarCliente(f)" #f="ngForm">
+  <input type="text" name="nombreCliente" ngModel required />
+  <button type="submit">Agregar Cliente</button>
+</form>
+
+<app-cliente
+  (clienteClicked)="eliminarCliente(cliente)"
+  *ngFor="let cliente of clientes"
+  [nombreCliente]="cliente"
+></app-cliente>

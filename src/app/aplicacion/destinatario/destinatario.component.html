@@ -1,0 +1,133 @@
+<section fxLayout>
+  <mat-card fxFlex="30%">
+    <form
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      #f="ngForm"
+      (ngSubmit)="agregarDestinatario(f)"
+      fxLayoutGap="10px"
+    >
+      <h2 class="title"> Ingrese los datos del destinatario </h2>
+      <mat-form-field>
+        <mat-label>Ingrese el Rut del destinatario</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="rut"
+          ngModel
+          name="rut"
+          required
+        />
+        <mat-error>Debe ingresar el Rut</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Debe ingresar el Nombre</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="nombre"
+          ngModel
+          name="nombre"
+          required
+        />
+        <mat-error>Debe indicar el nombre</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Ingrese el Apellido</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="apellido"
+          ngModel
+          name="apellido"
+          required
+        />
+        <mat-error>Debe indicar el apellido</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Ingrese el Teléfono</mat-label>
+        <input
+          type="tel"
+          matInput
+          placeholder="Telefono"
+          ngModel
+          name="telefono"
+          required
+        />
+        <mat-error>Debe indicar el Teléfono</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Ingrese E-mail</mat-label>
+        <input
+          type="email"
+          matInput
+          placeholder="Email"
+          ngModel
+          name="correo"
+          email
+          required
+          #mailInput="ngModel"
+        />
+        <mat-error *ngIf="mailInput.hasError('required')"
+          >Debe ingresar un email</mat-error
+        >
+        <mat-error *ngIf="!mailInput.hasError('required')"
+          >El email no es valido</mat-error
+        >
+      </mat-form-field>
+      <h2 class="subTitle"> Datos Bancarios </h2>
+      <mat-form-field appearance="fill">
+        <mat-label>Banco</mat-label>
+        <mat-select
+          [(ngModel)]="selectBank"
+          name="banco"
+          (selectionChange)="selectedBanco($event)"
+        >
+          <mat-option *ngFor="let banco of bancosData" [value]="banco.id">
+            {{ banco.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Tipo de Cuenta</mat-label>
+        <mat-select
+          [(ngModel)]="selectTipoCuenta"
+          name="cuenta"
+          (selectionChange)="selectedTipoCuenta($event)"
+        >
+          <mat-option *ngFor="let cuenta of tipoCuentas" [value]="cuenta._id">
+            {{ cuenta.descTipoCuenta }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>N° de Cuenta</mat-label>
+        <input
+          type="number"
+          matInput
+          placeholder="N° de cuenta"
+          ngModel
+          name="numeroCuenta"
+          required
+          id="txtSoloNumeros"
+        />
+        <mat-error>Debe indicar el N° de cuenta</mat-error>
+      </mat-form-field>
+      <div class="input-wrapper-button">
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          [disabled]="f.invalid"
+        >
+          Agregar Destinatario
+        </button>
+      </div>
+    </form>
+  </mat-card>
+  <section>
+    <div class="image-cel"></div>
+  </section>
+</section>

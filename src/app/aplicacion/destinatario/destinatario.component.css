@@ -1,0 +1,22 @@
+mat-form-field{
+  width: 300px;
+}
+
+
+.image-cel{
+  background: url("src/assets/img-section-5-v2.jpg") center/cover no-repeat;
+}
+
+mat-card{
+  margin-top: 60px;
+  margin-left: 400px;
+  width: 200px;
+}
+
+.title{
+  text-align: center;
+}
+
+.subTitle{
+  text-align: left;
+}

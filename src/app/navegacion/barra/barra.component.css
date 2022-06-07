@@ -1,0 +1,36 @@
+.navegacion-menu{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.barraColor{
+  background-color: #370351ce;
+  color: white;
+}
+.navegacion-list-label {
+  display: inline-block;
+  padding-left: 6px;;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover,
+a:active{
+  color: cadetblue;
+}
+
+.navegacion-menu{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+.navegacion-list-label {
+  display: inline-block;
+  padding-left: 6px;;
+}

@@ -1,0 +1,105 @@
+<section fxLayoutAlign="left">
+  <div class="image-welcome"></div>
+  <section>
+    <mat-card>
+      <form
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        #f="ngForm"
+        (ngSubmit)="registrarUsuario(f)"
+        fxLayoutGap="10px"
+      >
+        <h2 class="title">Crea tu cuenta</h2>
+        <mat-form-field>
+          <mat-label>Ingrese su Rut</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="rut"
+            ngModel
+            name="rut"
+            required
+          />
+          <mat-error>Debe ingresar un Rut</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Debe ingresar su Nombre</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="nombre"
+            ngModel
+            name="nombre"
+            required
+          />
+          <mat-error>Debe indicar su nombre</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Ingrese su Apellido</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="apellido"
+            ngModel
+            name="apellido"
+            required
+          />
+          <mat-error>Debe indicar su apellido</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Ingrese su Teléfono</mat-label>
+          <input
+            type="tel"
+            matInput
+            placeholder="Telefono"
+            ngModel
+            name="telefono"
+            required
+          />
+          <mat-error>Debe indicar su Teléfono</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Ingrese E-mail</mat-label>
+          <input
+            type="email"
+            matInput
+            placeholder="Email"
+            ngModel
+            name="correo"
+            email
+            required
+            #mailInput="ngModel"
+          />
+          <mat-error *ngIf="mailInput.hasError('required')"
+            >Debe ingresar un email</mat-error
+          >
+          <mat-error *ngIf="!mailInput.hasError('required')"
+            >El email no es valido</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field hintLabel="La contraseña debe tener 6 caracteres">
+          <mat-label>Ingrese Constraseña</mat-label>
+          <input
+            type="password"
+            matInput
+            placeholder="Ingrese Contraseña"
+            ngModel
+            name="password"
+            required
+            maxlength="6"
+          />
+          <mat-error>La contraseña debe tener 6 caracteres</mat-error>
+        </mat-form-field>
+
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          [disabled]="f.invalid"
+        >
+          Guardar
+        </button>
+      </form>
+    </mat-card>
+  </section>
+</section>

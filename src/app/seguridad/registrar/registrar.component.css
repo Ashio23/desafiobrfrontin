@@ -1,0 +1,21 @@
+mat-form-field{
+  width: 300px;
+}
+
+mat-card{
+  width: 300px;
+  height: 500px;
+  text-align: center;
+  margin-top: 200px;
+  margin-left: 500px;
+}
+
+.image-welcome {
+  background: url("src/assets/login.png") center/cover no-repeat;
+  width: 30%;
+  height: 870px;
+}
+
+.title{
+  text-align: center;
+}
